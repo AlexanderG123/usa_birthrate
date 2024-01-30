@@ -13,6 +13,70 @@ number-sections: true
 bibliography: references.bib
 ---
 
+```{r}
+knitr::opts_chunk$set(echo = FALSE, results = "hide", message = FALSE, warning = FALSE)
+```
+
+```{r}
+library("tidyverse")
+data <- read.csv("~/usa_birthrate/inputs/data/fig_1.csv")
+
+ggplot(data, aes(x = year, y = brate_all)) + 
+    geom_line() +
+    theme_minimal() +
+    labs(title = "US Birth Rates from 1980 to 2020",
+         x = "Year",
+         y = "Birth Rate per 1,000 women age 15–44")
+
+```
+
+```{r}
+data <- read.csv("~/usa_birthrate/inputs/data/fig_2e.csv")
+
+ggplot(data, aes(x = year)) + 
+    geom_line(aes(y = brate_married, color = "Married")) +
+    geom_line(aes(y = brate_unmarried, color = "Unmarried")) +
+    theme_minimal() +
+    labs(title = "US Birth Rates by Marital Status (1980-2020)",
+         x = "Year",
+         y = "Birth Rate",
+         color = "Marital Status")
+
+```
+
+```{r}
+
+data <- read.csv("~/usa_birthrate/inputs/data/fig_5.csv")
+
+ggplot() + 
+    geom_line(data = data, aes(x = year, y = brate_lesshs, color = "Less than High School")) +
+    geom_line(data = data, aes(x = year, y = brate_hsgrad, color = "High School Graduate")) +
+    geom_line(data = data, aes(x = year, y = brate_somecoll, color = "Some College")) +
+    geom_line(data = data, aes(x = year, y = brate_colgrad, color = "College Graduate")) +
+    theme_minimal() +
+    labs(title = "US Birth Rates by Education Level (1992-2019)",
+         x = "Year",
+         y = "Birth Rate",
+         color = "Education Level")
+
+```
+```{r}
+
+data <- read.csv("~/usa_birthrate/inputs/data/fig_4.csv")
+ggplot() + 
+    geom_line(data = data, aes(x = year, y = brate_1519, color = "15-19")) +
+    geom_line(data = data, aes(x = year, y = brate_2024, color = "20-24")) +
+    geom_line(data = data, aes(x = year, y = brate_2529, color = "25-29")) +
+    geom_line(data = data, aes(x = year, y = brate_3034, color = "30-34")) +
+    geom_line(data = data, aes(x = year, y = brate_3539, color = "35-39")) +
+    geom_line(data = data, aes(x = year, y = brate_4044, color = "40-44")) +
+    theme_minimal() +
+    labs(title = "US Birth Rates by Age Group (1980-2020)",
+         x = "Year",
+         y = "Birth Rate",
+         color = "Age Group")
+
+```
 
 # References
 
