@@ -1,16 +1,16 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
-author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
-date: today
+title: "Deciphering the Trends: A Comprehensive Analysis of US Birth Rates and Educational Attainment from 1980 to 2020"
+author: "Jagpreet Singh & Alexander Guarasci"
+date: "`r format(Sys.Date(), '%B %d, %Y')`" # This will add the current date
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
-format: pdf
-number-sections: true
 bibliography: references.bib
+execute:
+  echo: false
+format: pdf
+fig-pos: "H"
+abstract: |
+ This study investigates homicide trends in Toronto from 2004 to 2020, utilizing data from OpenDataToronto. The data shows a fluctuating increase in homicide rates over the city, with most homicides occurring in a relatively small subset of neighbourhoods. Additionally, the data shows the prevalence of gun violence, a surprising result in a country known for its strict gun control laws. This research is significant as it provides insights into urban violence in a major Canadian city. It contributes to the understanding of urban crime dynamics in the Greater Toronto Area.
+
 ---
 
 ```{r}
