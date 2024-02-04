@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = FALSE, results = "hide", message = FALSE, warning =
 ```
 
 ```{r}
+#| label: fig-1
 library("tidyverse")
 data <- read.csv("~/usa_birthrate/inputs/data/fig_1.csv")
 
@@ -29,8 +30,9 @@ ggplot(data, aes(x = year, y = brate_all)) +
          y = "Birth Rate per 1,000 women age 15–44")
 
 ```
-
+@fig-1
 ```{r}
+#| label: fig-2
 data <- read.csv("~/usa_birthrate/inputs/data/fig_2e.csv")
 
 ggplot(data, aes(x = year)) + 
@@ -43,9 +45,9 @@ ggplot(data, aes(x = year)) +
          color = "Marital Status")
 
 ```
-
+@fig-2
 ```{r}
-
+#| label: fig-3
 data <- read.csv("~/usa_birthrate/inputs/data/fig_5.csv")
 
 ggplot() + 
@@ -60,8 +62,9 @@ ggplot() +
          color = "Education Level")
 
 ```
+@fig-3
 ```{r}
-
+#| label: fig-4
 data <- read.csv("~/usa_birthrate/inputs/data/fig_4.csv")
 ggplot() + 
     geom_line(data = data, aes(x = year, y = brate_1519, color = "15-19")) +
@@ -77,6 +80,8 @@ ggplot() +
          color = "Age Group")
 
 ```
+@fig-4
+
 
 # References
 
