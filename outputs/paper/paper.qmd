@@ -9,15 +9,61 @@ execute:
 format: pdf
 fig-pos: "H"
 abstract: |
- This study investigates homicide trends in Toronto from 2004 to 2020, utilizing data from OpenDataToronto. The data shows a fluctuating increase in homicide rates over the city, with most homicides occurring in a relatively small subset of neighbourhoods. Additionally, the data shows the prevalence of gun violence, a surprising result in a country known for its strict gun control laws. This research is significant as it provides insights into urban violence in a major Canadian city. It contributes to the understanding of urban crime dynamics in the Greater Toronto Area.
-
+ Through the examination of comprehensive data, we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns. This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions.
 ---
 
 ```{r}
 knitr::opts_chunk$set(echo = FALSE, results = "hide", message = FALSE, warning = FALSE)
 ```
+Code and data supporting this analysis are available at https://github.com/AlexanderG123/usa_birthrate
 
-```{r}
+# Introduction
+
+This paper examines the changing landscape of birth rates in the United States over forty years, focusing on the interrelationships among age, education level, and marital status. Using extensive data from the American Economics Association, we employ rigorous statistical analysis to uncover the nuances of these trends. Our findings estimated the pronounced impact of educational attainment and marital status on fertility decisions, particularly highlighting the shift towards later-life parenthood and the evolving dynamics of family formation. Against the backdrop of significant societal transformations, we observe how these demographic factors have shaped fertility patterns.
+
+
+Our analysis, conducted using the R programming language, reveals significant shifts in birth patterns that have far-reaching implications. The larger context of demographic shifts and their implications for societal structures, economic planning, and policy formulation is the driving force behind this study. By breaking down the trends by demographics, we hope to close a critical gap in our understanding of the interactions between socioeconomic factors and fertility decisions.
+
+The dataset was obtained from the data section for “The Puzzle of Falling US Birth Rates since the Great Recession” [@citepaper], a paper from the Journal of Economic Perspectives [@citewebsite]. Analysis of the data was done using the R programming language [@citeR] in conjunction with the following packages: tidyverse [@tidyverse] and Knitr [@knitr]. The figures were created using ggplot2 [@citeggplot]. We began by constructing a comprehensive line graph illustrating the overarching trend of the birth rate per 1000 women across all women aged 15-44 in the United States from 1980-2020. We then plotted three-line graphs to analyze the patterns in birth rate with relation to three distinct demographic groups defined by marital status, educational level, and age group of the mother. This granular breakdown facilitated a more nuanced understanding of how birth rates varied within these demographic cohorts for the specified period. This helped us study the overall trend concerning these three demographic groups.
+
+This paper is organized as follows: first, we describe the methodological approach, including data sourcing and analytical tools; then, we present our results in detail; we discuss our findings in the context of previous research, pointing out the limitations of our study as well as its societal implications; finally, we suggest future directions for research, stressing the significance of looking into the underlying causes of changing fertility patterns and their effects on society.
+
+
+Our research highlights the importance of demographic studies in informing policy and public debate, offering a foundation for addressing the challenges posed by changing birth rates. By exploring the intersections of education, marital status, and age with fertility, we contribute valuable insights into the shifting demographic landscape of the United States.
+
+
+# 2 Data
+
+# 2.1 Description of datasets: 
+
+The American Economics Association [@citewebsite] has made available a dataset that provides a thorough analysis of birth rates over a long period, broken down by a variety of demographic variables. Among the detailed records of birth rates are those by age group, education level, and marital status. The age group data covers the years 1980 to 2020 and is particularly useful for understanding how birth rates have changed over time across different age brackets. The education level data covers the years 1992 to 2019 and gives insights into how educational attainment influences birth rates. The marital status data, which covers the years 1980 to 2019, provides insight into the variations in birth rates between married and single people, reflecting changes in society and individual preferences. For this paper, there were no suitable alternative data sources
+
+
+
+# 2.2 Data cleaning and construction:
+
+The study's data preparation process was significantly streamlined, primarily because of the thorough preliminary work conducted by the American Economics Association [@citewebsite], which organized and cleaned the data for @fig-1, @fig-3, and @fig-4. This meant that for these datasets, no additional data cleaning was required, enabling us to move straight into analysis. The fourth dataset, which was used to create @fig-2, required a minimal amount of additional cleaning because it contained information that was not necessary for our analysis and was therefore refined to just the necessary information by using the select function from Tidyverse [@tidyverse]. No new variables were constructed. These steps represented the extent of data cleaning needed for our study.
+
+
+# 2.3 Variable explanation:
+
+One of the most important variables in this dataset is the age group data, which breaks down birth rates into age brackets like 15–19, 20–24, and so on up to the 40–44 age group. This level of granularity allows for a detailed analysis of fertility patterns among various age groups, highlighting trends like the growing trend of having children later in life or the decrease in teenage pregnancies. The education level dataset provides a nuanced view of how educational background correlates with reproductive choices and fertility rates by breaking down birth rates into categories based on the highest level of education attained, such as less than high school, high school graduate, some college graduate, and college graduate. Finally, by distinguishing between married and single women, the marital status dataset offers a window into the relationship between fertility and marital status. These variables are essential to comprehending societal patterns and demographic dynamics because they provide a platform to explore how fertility decisions and behaviours are influenced by marital status.
+
+# 2.4 Measurement:
+
+First, the birth rate measures the number of live births per 1,000 people in a population annually. Measuring births that take place in hospital settings is simple, but recording births that happen outside of hospitals can be more difficult. It is possible that non-hospital births do not always get registered right away, especially in underserved or rural areas, which could result in underreporting in official datasets. This discrepancy can affect how we interpret birth rates, especially in areas where home births or births outside of medical facilities are more prevalent.
+
+Age is one of the more reliable variables in this study because age group measurement is less ambiguous and more direct. It is determined using official documentation, such as birth certificates, passports, or ID cards. This process ensures high accuracy in categorizing individuals into their respective age groups. However, the accuracy and availability of official records can vary, which can affect the precision of age group data.
+
+Another variable that is generally easy to measure is marital status. In the United States, each state collects data on marriages, divorces, and annulments. Since this data is based on official documents like marriage certificates and legal records of separation or divorce, it is usually dependable. However, the documentation and reporting of marital status can vary depending on cultural and regional differences in the recognition of certain marital statuses, such as common-law marriages or partnerships that are not formally registered with the state.
+
+The Mother's Education item on the U.S. Standard Certificate of Live Birth is used to determine the mother's educational attainment. This information is typically provided by the mother or a surrogate and asks for the highest degree or level of education completed at the time of delivery. While this method allows for a direct report of educational attainment, it depends on the individual's self-reporting accuracy and may be influenced by the individual's understanding and interpretation of the question.
+
+# 3 Results:
+
+We begin by looking at the overall trend in birth rate from 1980 - 2020. @fig-1 is a line chart with a linear regression overlapped on it.  A linear regression is a statistical model that aims to illustrate a linear relationship between two variables to be able to forecast how a change in one of the variables will affect a change in the other. In this situation, it indicates that the birth rate is trending downward.  This becomes much more interesting when you break the data down into different demographics
+
+```{r, fig.cap= "Total birth rate"}
 #| label: fig-1
 library("tidyverse")
 data <- read.csv("~/usa_birthrate/inputs/data/fig_1.csv")
@@ -27,44 +73,17 @@ ggplot(data, aes(x = year, y = brate_all)) +
     theme_minimal() +
     labs(title = "US Birth Rates from 1980 to 2020",
          x = "Year",
-         y = "Birth Rate per 1,000 women age 15–44")
-
+         y = "Birth Rate per 1,000 women age 15–44") + 
+  geom_smooth(method = "lm", aes(group = 1), color = "blue")
 ```
-@fig-1
-```{r}
+# 3.1 Age Group vs Birth Rate
+
+@fig-2 depicts the fluctuations in birth rates for 6 different age groups between 1980 – 2020. Age groups 15-19, 20-24 and 25-29 saw a sharp decline in birth rate over the four decades with 15-19 experiencing the steepest decline. The birth rate for this age group went from 53 births per 1000 women in 1980 to 15.3 births in 2020. Birth rates for women in their 20s also saw noticeable declines, though the decrease was less sharp compared to the teenage group. Specifically, the birth rate for women aged 20-24 fell from 115.1 per 1,000 in 1980 to 62.8 per 1,000 in 2020, while for women aged 25-29, it declined from 112.9 per 1,000 to 90.0 per 1,000 over the same period.
+
+On the other hand, older age groups, including women aged 30-34, 35-39, and 40-44 saw a rise in birth rates over time. However, the rise in birth rates for these age groups was significantly less pronounced when compared to the decline in birth rates for the younger age groups which contributed to an overall decrease in birth rates, highlighting a widespread trend of reduced fertility rates across different stages of adulthood.
+
+```{r, fig.cap= "Birth rate of different age groups"}
 #| label: fig-2
-data <- read.csv("~/usa_birthrate/inputs/data/fig_2e.csv")
-
-ggplot(data, aes(x = year)) + 
-    geom_line(aes(y = brate_married, color = "Married")) +
-    geom_line(aes(y = brate_unmarried, color = "Unmarried")) +
-    theme_minimal() +
-    labs(title = "US Birth Rates by Marital Status (1980-2020)",
-         x = "Year",
-         y = "Birth Rate",
-         color = "Marital Status")
-
-```
-@fig-2
-```{r}
-#| label: fig-3
-data <- read.csv("~/usa_birthrate/inputs/data/fig_5.csv")
-
-ggplot() + 
-    geom_line(data = data, aes(x = year, y = brate_lesshs, color = "Less than High School")) +
-    geom_line(data = data, aes(x = year, y = brate_hsgrad, color = "High School Graduate")) +
-    geom_line(data = data, aes(x = year, y = brate_somecoll, color = "Some College")) +
-    geom_line(data = data, aes(x = year, y = brate_colgrad, color = "College Graduate")) +
-    theme_minimal() +
-    labs(title = "US Birth Rates by Education Level (1992-2019)",
-         x = "Year",
-         y = "Birth Rate",
-         color = "Education Level")
-
-```
-@fig-3
-```{r}
-#| label: fig-4
 data <- read.csv("~/usa_birthrate/inputs/data/fig_4.csv")
 ggplot() + 
     geom_line(data = data, aes(x = year, y = brate_1519, color = "15-19")) +
@@ -80,7 +99,81 @@ ggplot() +
          color = "Age Group")
 
 ```
-@fig-4
+# 3.2 Education Level vs Birth Rate
+
+The analysis of birth rates by education level from 1980 to the 2010s reveals that both the most and least educated women experienced the largest drops in birth rates. As seen in @fig-3, women with college degrees and those without high school diplomas saw the most significant declines, suggesting a complex interaction between education and fertility rates. Despite these overall trends, birth rates for women without a high school degree remained generally higher when compared to those with higher education levels throughout the period studied. This observation points to an enduring disparity in birth rates along educational lines.
+
+Over the years, birth rates fluctuated across all education levels, indicating that various factors,  beyond education alone, influence fertility decisions. There were instances of notable increases or decreases in birth rates among different educational groups, hinting at the impact of societal or economic factors on reproductive choices. Towards the later years in the dataset, particularly in the 2010s, a stabilization or slight decline in birth rates was evident across all education levels. This trend suggests a convergence in fertility patterns irrespective of educational attainment, with the birth rates appearing to level off or reduce slightly for women across the spectrum of education.
+
+```{r, fig.cap= "Birth rate by different education level"}
+#| label: fig-3
+data <- read.csv("~/usa_birthrate/inputs/data/fig_5.csv")
+
+ggplot() + 
+    geom_line(data = data, aes(x = year, y = brate_lesshs, color = "Less than High School")) +
+    geom_line(data = data, aes(x = year, y = brate_hsgrad, color = "High School Graduate")) +
+    geom_line(data = data, aes(x = year, y = brate_somecoll, color = "Some College")) +
+    geom_line(data = data, aes(x = year, y = brate_colgrad, color = "College Graduate")) +
+    theme_minimal() +
+    labs(title = "US Birth Rates by Education Level (1992-2019)",
+         x = "Year",
+         y = "Birth Rate",
+         color = "Education Level")
+```
+# 3.3 Marital Status vs Birth Rate
+
+@fig-4 shows that the birth rate among unmarried women has been gradually increasing from approximately 29.4 births per 1,000 unmarried women in 1980 to about 43.4 births per 1,000 unmarried women in 2015. In contrast, the birth rate among married women has shown less variation over the same period, maintaining a range of about 84 to 89 births per 1,000 married women from 1980 to 2019. These trends indicate a distinct pattern of change in fertility rates that differs markedly between married and unmarried women over the decades.
+
+Since 2007, birth rates among both married and unmarried women have started to converge, with both groups experiencing declines, though the rate of decline has been somewhat more pronounced among unmarried women. This period has also seen more variability in the birth rate among unmarried women. In the most recent years observed, there has been a slight decline in birth rates for both groups, suggesting a potential shift in fertility patterns.
+
+
+```{r, fig.cap= "Birth rate of married vs unmarried women"}
+#| label: fig-4
+data <- read.csv("~/usa_birthrate/inputs/data/fig_2e.csv")
+
+ggplot(data, aes(x = year)) + 
+    geom_line(aes(y = brate_married, color = "Married")) +
+    geom_line(aes(y = brate_unmarried, color = "Unmarried")) +
+    theme_minimal() +
+    labs(title = "US Birth Rates by Marital Status (1980-2020)",
+         x = "Year",
+         y = "Birth Rate",
+         color = "Marital Status")
+
+
+```
+# 4 Discussion:
+
+# 4.1 Summary of the Study
+
+
+This paper set out to investigate the dynamics of birth rates over forty years, from 1980 to 2020, by looking at the influence of education, marital status, and societal norms on fertility decisions. By using data on birth rates from various age groups, educational backgrounds, and marital statuses, the study sought to provide a thorough picture of the evolution of birth rates.
+
+# 4.2 Learning about the World: Evolution of Birth Rates and Societal Norms
+
+The most notable decrease was seen among teenagers, where birth rates fell from 53 per 1,000 in 1980 to 15.3 in 2020. This dramatic decline not only reflects the success of public health initiatives aimed at reducing teenage pregnancies but also suggests a shift in the social fabric, with young individuals increasingly prioritizing education and career over early family formation [@cnbc]. The decline in birth rates across all age groups from 1980 to 2020 signifies a profound transformation in societal norms and individual life choices.
+
+The decline in birth rates among women in their 20s, while not as sharp as that of teenagers, nevertheless indicates a substantial shift in the way younger women view motherhood. The change in birth rates from 115.1 births per 1,000 women in the 20–24 age group in 1980 to 62.8 in 2020, and from 112.9 to 90.0 in the 25–29 age group in the same period, reflects broader trends in society that prioritize the pursuit of higher education, career advancement, and personal development over having children at a young age [@cnbc].
+
+A further indication of the trend toward later-life parenthood is the rise in birth rates among the older age groups (30–34, 35–39, and 40–44). This trend may be attributed to the growing accessibility and social acceptance of reproductive technologies as well as the growing belief that achieving financial and professional stability should come before starting a family.
+
+# 4.3 Learning about the World: The Interplay Between Education and Fertility
+
+The analysis shows a complex relationship between education levels and birth rates, highlighting how fertility decisions are influenced by educational attainment. The sharp decline in birth rates among the most and least educated women indicates that family size preferences are strongly influenced by education. For higher educated women, the tendency towards lower birth rates further reflects the importance placed on career and financial stability, with education offering both the means and the justification for delaying or limiting childbearing [@ncbi].
+
+On the other hand, the higher birth rates among women who did not complete high school, even though these rates have declined significantly from their peak, suggest that education, economic opportunities, and family planning resources interact in a complex way. This dynamic begs the question of how much education influences fertility decisions versus the social pressures and economic circumstances that are associated with educational attainment.
+
+
+The variations in birth rates over time across all educational levels further suggest that education is only one of many factors influencing fertility; these variations also point to the importance of societal, economic, and potentially technological influences in influencing individual decisions regarding the size of their family.
+
+
+# 4.4 Weaknesses and Limitations
+
+While the study offers valuable insights, it is not without limitations. Firstly, the data collection process is complicated by the use of self-reported information, which can introduce biases, especially when measuring education levels. Secondly, there is a possibility of underreporting births among undocumented immigrants, and the requirement for documentation to verify age poses additional challenges. Lastly, a critical gap in the research is the absence of analysis regarding the reasons for choosing to have fewer children, which leaves unexplored the myriad of social, economic, and personal factors that influence fertility decisions.
+
+# 4.5 Future Research Directions
+
+Future research should aim to investigate the relationship between financial stability and fertility decisions by correlating trends in birth rates with economic data. Questions like whether having a higher income causes one to have more children or if people are delaying having children because of financial concerns should be thoroughly examined. Finally, examining the implications of an aging population and the social and economic costs of altering fertility patterns could offer insightful information to policymakers and society at large.
 
 
 # References
