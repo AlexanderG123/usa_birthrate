@@ -177,5 +177,3 @@ Future research should aim to investigate the relationship between financial sta
 
 
 # References
-
-
