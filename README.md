@@ -10,12 +10,11 @@ The code in this repository is used for the construction of analysis and associa
 The repo is structured as:
 
 -   `input/data` contains .csv files used in the analysis provided by https://www.aeaweb.org
--   
 -   `outputs/simulation` Contains simulated data as a csv file of what the data should look like for modelling
 -   `outputs/paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper.
 -   `scripts` contains the R scripts used to simulate, download, clean and generte figures used in the paper
 -   
-## software requirements
+## Software requirements
 R (version 4.3.2)
 - tidyverse
 - ggplot2
