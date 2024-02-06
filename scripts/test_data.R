@@ -1,8 +1,11 @@
 #### Preamble ####
-# Purpose: Basic test on input data used in analysis
-# Author: 
-# Date: 
+# Purpose: Tests the original data from the AEA. Can be used on simulated data as well
+# Author:  Alexander Guarasci, Jagpreet Singh & Jake Gilbert 
+# Date: 14 February 2023
+# Contact: alexander.guarasci@mail.utoronto.com, j.gilbert@mail.utoronto.ca & jagpreetsingh.singh@mail.utoronto.ca
 # License: MIT
+# Pre-requisites: NA
+
 
 
 
