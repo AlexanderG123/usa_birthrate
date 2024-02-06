@@ -16,7 +16,7 @@ abstract: |
 ```{r}
 knitr::opts_chunk$set(echo = FALSE, results = "hide", message = FALSE, warning = FALSE)
 ```
-Code and data supporting this analysis are available at https://github.com/AlexanderG123/usa_birthrate
+Code and data underpinning this paper are available at: https://github.com/AlexanderG123/usa_birthrate. Selected aspects of the original paper that underpins this paper were reproduced and a record of this is available at: DOI : https://doi.org/10.48152/ssrp-g8j2-3h68
 
 # Introduction
 
