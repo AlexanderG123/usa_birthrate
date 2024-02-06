@@ -9,7 +9,8 @@ execute:
 format: pdf
 fig-pos: "H"
 abstract: |
- Through the examination of comprehensive data, we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns. This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions.
+ This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions.
+ Through the examination of comprehensive data, provided by American Economics Association [@citewebsite], we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns.
 ---
 
 ```{r}
@@ -19,10 +20,10 @@ Code and data supporting this analysis are available at https://github.com/Alexa
 
 # Introduction
 
-This paper examines the changing landscape of birth rates in the United States over forty years, focusing on the interrelationships among age, education level, and marital status. Using extensive data from the American Economics Association, we employ rigorous statistical analysis to uncover the nuances of these trends. Our findings estimated the pronounced impact of educational attainment and marital status on fertility decisions, particularly highlighting the shift towards later-life parenthood and the evolving dynamics of family formation. Against the backdrop of significant societal transformations, we observe how these demographic factors have shaped fertility patterns.
+This paper analyses the changing landscape of birth rates in the United States over forty years, focusing on its interrelationships among age, education level, and marital status. Using extensive data from the American Economics Association, we employ rigorous statistical analysis to uncover the nuances of these trends. Our findings estimated the pronounced impact of educational attainment and marital status on fertility decisions, particularly highlighting the shift towards later-life parenthood and the evolving dynamics of family formation. Against the backdrop of significant societal transformations, we observe how these demographic factors have shaped fertility patterns.
 
 
-Our analysis, conducted using the R programming language, reveals significant shifts in birth patterns that have far-reaching implications. The larger context of demographic shifts and their implications for societal structures, economic planning, and policy formulation is the driving force behind this study. By breaking down the trends by demographics, we hope to close a critical gap in our understanding of the interactions between socioeconomic factors and fertility decisions.
+Our analysis, conducted using the R programming language [@citeR], reveals significant shifts in birth patterns that have far-reaching implications. The larger context of demographic shifts and their implications for societal structures, economic planning, and policy formulation is the driving force behind this study. By breaking down the trends by demographics, we hope to close a critical gap in our understanding of the interactions between socioeconomic factors and fertility decisions.
 
 The dataset was obtained from the data section for “The Puzzle of Falling US Birth Rates since the Great Recession” [@citepaper], a paper from the Journal of Economic Perspectives [@citewebsite]. Analysis of the data was done using the R programming language [@citeR] in conjunction with the following packages: tidyverse [@tidyverse] and Knitr [@knitr]. The figures were created using ggplot2 [@citeggplot]. We began by constructing a comprehensive line graph illustrating the overarching trend of the birth rate per 1000 women across all women aged 15-44 in the United States from 1980-2020. We then plotted three-line graphs to analyze the patterns in birth rate with relation to three distinct demographic groups defined by marital status, educational level, and age group of the mother. This granular breakdown facilitated a more nuanced understanding of how birth rates varied within these demographic cohorts for the specified period. This helped us study the overall trend concerning these three demographic groups.
 
@@ -51,40 +52,41 @@ One of the most important variables in this dataset is the age group data, which
 
 # 2.4 Measurement:
 
-First, the birth rate measures the number of live births per 1,000 people in a population annually. Measuring births that take place in hospital settings is simple, but recording births that happen outside of hospitals can be more difficult. It is possible that non-hospital births do not always get registered right away, especially in underserved or rural areas, which could result in underreporting in official datasets. This discrepancy can affect how we interpret birth rates, especially in areas where home births or births outside of medical facilities are more prevalent.
+The birth rate measures the number of live births per 1,000 people in a population annually. Measuring births that take place in hospital settings is simple, but recording births that happen outside of hospitals can be more difficult. It is possible that non-hospital births do not always get registered right away, especially in underserved or rural areas, which could result in underreporting in official datasets. This discrepancy can affect how we interpret birth rates, especially in areas where home births or births outside of medical facilities are more prevalent.
 
-Age is one of the more reliable variables in this study because age group measurement is less ambiguous and more direct. It is determined using official documentation, such as birth certificates, passports, or ID cards. This process ensures high accuracy in categorizing individuals into their respective age groups. However, the accuracy and availability of official records can vary, which can affect the precision of age group data.
+Age is one reliable variables in this study because age group measurement is less ambiguous and more direct. It is determined using official documentation, such as birth certificates, passports, or ID cards. This process ensures high accuracy in categorizing individuals into their respective age groups. However, the accuracy and availability of official records can vary, which can affect the precision of age group data. Fortunately any inaccuracy due to this is heavily mitigated by the grouping of age groups rather than if the analysis was done on individual ages.
 
-Another variable that is generally easy to measure is marital status. In the United States, each state collects data on marriages, divorces, and annulments. Since this data is based on official documents like marriage certificates and legal records of separation or divorce, it is usually dependable. However, the documentation and reporting of marital status can vary depending on cultural and regional differences in the recognition of certain marital statuses, such as common-law marriages or partnerships that are not formally registered with the state.
+Marital status is another variable that is well documented. In the United States, each state collects data on marriages, divorces, and annulments. Since this data is based on official documents like marriage certificates and legal records of separation or divorce, it is usually dependable. However, the documentation and reporting of marital status can vary depending on cultural and regional differences in the recognition of certain marital statuses. Common-law marriages or partnerships that are not formally registered with the state will not be captured by the binary variable used here.
 
-The Mother's Education item on the U.S. Standard Certificate of Live Birth is used to determine the mother's educational attainment. This information is typically provided by the mother or a surrogate and asks for the highest degree or level of education completed at the time of delivery. While this method allows for a direct report of educational attainment, it depends on the individual's self-reporting accuracy and may be influenced by the individual's understanding and interpretation of the question.
+The Mother's Education item on the U.S. Standard Certificate of Live Birth is used to determine the mother's educational attainment. This information is provided by the mother or a surrogate and asks for the highest degree or level of education completed at the time of delivery. While this method allows for a direct report of educational attainment, it suffers from some information biases, such as social desirability bias [@citebias]which may skew the results towards higher education levels. Further self reported answers may be influenced by the individual's understanding and interpretation of the question.
 
 # 3 Results:
 
-We begin by looking at the overall trend in birth rate from 1980 - 2020. @fig-1 is a line chart with a linear regression overlapped on it.  A linear regression is a statistical model that aims to illustrate a linear relationship between two variables to be able to forecast how a change in one of the variables will affect a change in the other. In this situation, it indicates that the birth rate is trending downward.  This becomes much more interesting when you break the data down into different demographics
+We begin by looking at the overall trend in birth rate from 1980 - 2020. @fig-1 is a line chart with a linear regression overlapped on it.  A linear regression is a statistical model that aims to illustrate a linear relationship between two variables to be able to forecast how a change in one of the variables will affect a change in the other. In this situation, it indicates that the birth rate is trending downward over time.
+Breaking down the data into different demographics will provide a clearer picture of what is causing this decline.
 
-```{r, fig.cap= "Total birth rate"}
+```{r, fig.cap= "Birth rate for women aged 15-44 regressing to a declining linear model"}
 #| label: fig-1
-library("tidyverse")
-data <- read.csv("~/usa_birthrate/inputs/data/fig_1.csv")
+library(tidyverse)
+data <- read.csv(here::here("inputs/data/fig_1.csv"))
 
 ggplot(data, aes(x = year, y = brate_all)) + 
     geom_line() +
     theme_minimal() +
     labs(title = "US Birth Rates from 1980 to 2020",
          x = "Year",
-         y = "Birth Rate per 1,000 women age 15–44") + 
+         y = "Birth Rate per 1,000 women") + 
   geom_smooth(method = "lm", aes(group = 1), color = "blue")
 ```
 # 3.1 Age Group vs Birth Rate
 
 @fig-2 depicts the fluctuations in birth rates for 6 different age groups between 1980 – 2020. Age groups 15-19, 20-24 and 25-29 saw a sharp decline in birth rate over the four decades with 15-19 experiencing the steepest decline. The birth rate for this age group went from 53 births per 1000 women in 1980 to 15.3 births in 2020. Birth rates for women in their 20s also saw noticeable declines, though the decrease was less sharp compared to the teenage group. Specifically, the birth rate for women aged 20-24 fell from 115.1 per 1,000 in 1980 to 62.8 per 1,000 in 2020, while for women aged 25-29, it declined from 112.9 per 1,000 to 90.0 per 1,000 over the same period.
 
-On the other hand, older age groups, including women aged 30-34, 35-39, and 40-44 saw a rise in birth rates over time. However, the rise in birth rates for these age groups was significantly less pronounced when compared to the decline in birth rates for the younger age groups which contributed to an overall decrease in birth rates, highlighting a widespread trend of reduced fertility rates across different stages of adulthood.
+On the other hand, older age groups, including women aged 30-34, 35-39, and 40-44 saw a rise in birth rates over time. However, the rise in birth rates for these age groups was significantly less pronounced when compared to the decline in birth rates for the younger age groups which contributed to an overall decrease in birth rates, highlighting a widespread trend of reduced fertility rates (@fig-1) across different stages of adulthood.
 
 ```{r, fig.cap= "Birth rate of different age groups"}
 #| label: fig-2
-data <- read.csv("~/usa_birthrate/inputs/data/fig_4.csv")
+data <- read.csv(here::here("inputs/data/fig_4.csv"))
 ggplot() + 
     geom_line(data = data, aes(x = year, y = brate_1519, color = "15-19")) +
     geom_line(data = data, aes(x = year, y = brate_2024, color = "20-24")) +
@@ -107,7 +109,7 @@ Over the years, birth rates fluctuated across all education levels, indicating t
 
 ```{r, fig.cap= "Birth rate by different education level"}
 #| label: fig-3
-data <- read.csv("~/usa_birthrate/inputs/data/fig_5.csv")
+data <- read.csv(here::here("inputs/data/fig_5.csv"))
 
 ggplot() + 
     geom_line(data = data, aes(x = year, y = brate_lesshs, color = "Less than High School")) +
@@ -129,7 +131,7 @@ Since 2007, birth rates among both married and unmarried women have started to c
 
 ```{r, fig.cap= "Birth rate of married vs unmarried women"}
 #| label: fig-4
-data <- read.csv("~/usa_birthrate/inputs/data/fig_2e.csv")
+data <- read.csv(here::here("inputs/data/fig_2e.csv"))
 
 ggplot(data, aes(x = year)) + 
     geom_line(aes(y = brate_married, color = "Married")) +
