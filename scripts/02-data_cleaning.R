@@ -11,9 +11,8 @@
 library(tidyverse)
 
 #### Clean data ####
-raw_data <- read_csv("~/usa_birthrate/inputs/data/figs_2a_2b.csv")
+raw_data <- read_csv(here::here("inputs/data/figs_2a_2b.csv"))
 cleaned_data <- raw_data|>
   select(year,brate_1519,brate_2024,brate_2529,brate_3034,brate_3539,brate_4044)
 
-write_csv(cleaned_data,"~/usa_birthrate/inputs/data/fig_4.csv")
-
+write_csv(cleaned_data, here::here("/inputs/data/fig_4.csv"))
