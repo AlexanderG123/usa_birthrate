@@ -27,3 +27,4 @@ R (version 4.3.2)
 - knitr
 
 ## LLM Usage
+The only time we used the LLM was when asking for help removing the figure captions from our graphs. This was because I couldn't find anything online that explicitly explained how to do this. Ultimately, ChatGPT 3.5 was not able to help with this task which ended up being fine because in the end we wanted the figure captions anyway.  
