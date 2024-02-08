@@ -1,6 +1,6 @@
 ---
 title: "Deciphering the Trends: A Comprehensive Analysis of US Birth Rates and Educational Attainment from 1980 to 2020"
-author: "Jagpreet Singh & Alexander Guarasci"
+author: "Jagpreet Singh, Alexander Guarasci & Jacob Gilbert"
 date: "`r format(Sys.Date(), '%B %d, %Y')`" # This will add the current date
 date-format: long
 bibliography: references.bib
@@ -20,7 +20,7 @@ Code and data underpinning this paper are available at: https://github.com/Alexa
 
 # Introduction
 
-This paper analyses the changing landscape of birth rates in the United States over forty years, focusing on its interrelationships among age, education level, and marital status. Using extensive data from the American Economics Association, we employ rigorous statistical analysis to uncover the nuances of these trends. Our findings estimated the pronounced impact of educational attainment and marital status on fertility decisions, particularly highlighting the shift towards later-life parenthood and the evolving dynamics of family formation. Against the backdrop of significant societal transformations, we observe how these demographic factors have shaped fertility patterns.
+This paper analyses the changing landscape of birth rates in the United States over forty years, focusing on its interrelationships among age, education level, and marital status. Using extensive data from the American Economics Association, we employ rigorous statistical analysis to uncover the nuances of these trends. Our findings estimated the impact of  socioeconomic traits, such as education level and marital status, on fertility decisions to explain decrease in fertility seen over time.Particularly highlighting the shift towards later-life parenthood and the changing dynamics of family formation when it comes to marriage. The analysis shows how changes in these demographic factors have shaped fertility patterns.
 
 
 Our analysis, conducted using the R programming language [@citeR], reveals significant shifts in birth patterns that have far-reaching implications. The larger context of demographic shifts and their implications for societal structures, economic planning, and policy formulation is the driving force behind this study. By breaking down the trends by demographics, we hope to close a critical gap in our understanding of the interactions between socioeconomic factors and fertility decisions.
@@ -104,7 +104,7 @@ ggplot() +
 # 3.2 Education Level vs Birth Rate
 
 The analysis of birth rates by education level from 1980 to the 2010s reveals that both the most and least educated women experienced the largest drops in birth rates. As seen in @fig-3, women with college degrees and those without high school diplomas saw the most significant declines, suggesting a complex interaction between education and fertility rates. Despite these overall trends, birth rates for women without a high school degree remained generally higher when compared to those with higher education levels throughout the period studied. This observation points to an enduring disparity in birth rates along educational lines.
-
+ 
 Over the years, birth rates fluctuated across all education levels, indicating that various factors,  beyond education alone, influence fertility decisions. There were instances of notable increases or decreases in birth rates among different educational groups, hinting at the impact of societal or economic factors on reproductive choices. Towards the later years in the dataset, particularly in the 2010s, a stabilization or slight decline in birth rates was evident across all education levels. This trend suggests a convergence in fertility patterns irrespective of educational attainment, with the birth rates appearing to level off or reduce slightly for women across the spectrum of education.
 
 ```{r, fig.cap= "Birth rate by different education level"}
