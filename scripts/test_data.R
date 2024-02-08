@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Tests the original data from the AEA. Can be used on simulated data as well
-# Author:  Alexander Guarasci, Jagpreet Singh & Jake Gilbert 
+# Author:  Alexander Guarasci, Jagpreet Singh & Jacob Gilbert 
 # Date: 14 February 2023
 # Contact: alexander.guarasci@mail.utoronto.com, j.gilbert@mail.utoronto.ca & jagpreetsingh.singh@mail.utoronto.ca
 # License: MIT

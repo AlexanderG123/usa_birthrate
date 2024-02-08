@@ -1,10 +1,10 @@
 #### Preamble ####
 # Purpose: Generates the figures used in the paper
-# Author:  Alexander Guarasci, Jagpreet Singh & Jake Gilbert 
+# Author:  Alexander Guarasci, Jagpreet Singh & Jacob Gilbert
 # Date: 14 February 2023
 # Contact: alexander.guarasci@mail.utoronto.com, j.gilbert@mail.utoronto.ca & jagpreetsingh.singh@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: Need to have data downloaded 
+# Pre-requisites: Need to have data downloaded
 
 
 
@@ -19,7 +19,7 @@ library(ggplot2)
 data <- read.csv(here::here("inputs/data/fig_1.csv"))
 
 # Fig-1 line graph and linear regression
-ggplot(data, aes(x = year, y = brate_all)) + 
+ggplot(data, aes(x = year, y = brate_all)) +
     geom_line() +
     theme_minimal() +
     labs(title = "US Birth Rates from 1980 to 2020",

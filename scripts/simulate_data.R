@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Simulates the data 
-# Author:  Alexander Guarasci, Jagpreet Singh & Jake Gilbert 
+# Author:  Alexander Guarasci, Jagpreet Singh & Jacob Gilbert 
 # Date: 14 February 2023
 # Contact: alexander.guarasci@mail.utoronto.com, j.gilbert@mail.utoronto.ca & jagpreetsingh.singh@mail.utoronto.ca
 # License: MIT
