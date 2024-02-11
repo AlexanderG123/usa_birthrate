@@ -9,8 +9,7 @@ execute:
 format: pdf
 fig-pos: "H"
 abstract: |
- This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions.
- Through the examination of comprehensive data, provided by American Economics Association [@citewebsite], we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns.
+ This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions. Through the examination of comprehensive data, provided by American Economics Association [@citewebsite], we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns.
 ---
 
 ```{r}
