@@ -24,7 +24,7 @@ ggplot(data, aes(x = year, y = brate_all)) +
     theme_minimal() +
     labs(title = "US Birth Rates from 1980 to 2020",
          x = "Year",
-         y = "Birth Rate per 1,000 women") + 
+         y = "Birth Rate per 1,000 women") +
   geom_smooth(method = "lm", aes(group = 1), color = "blue")
 
 # Save graph
@@ -44,7 +44,7 @@ ggplot() +
   theme_minimal() +
   labs(title = "US Birth Rates by Age Group (1980-2020)",
        x = "Year",
-       y = "Birth Rate",
+       y = "Birth Rate per 1,000 women",
        color = "Age Group") +
   theme(legend.position = "bottom",
         legend.title = element_text(size=8),
@@ -65,7 +65,7 @@ ggplot() +
   theme_minimal() +
   labs(title = "US Birth Rates by Education Level (1992-2019)",
        x = "Year",
-       y = "Birth Rate",
+       y = "Birth Rate per 1,000 women",
        color = "Education Level") +
   theme(legend.position = "bottom",
         legend.title = element_text(size=8),
@@ -90,7 +90,7 @@ ggplot(data, aes(x = year)) +
   theme_minimal() +
   labs(title = "US Birth Rates by Marital Status (1980-2020)",
        x = "Year",
-       y = "Birth Rate",
+       y = "Birth Rate per 1,000 women",
        color = "Marital Status") +
   theme(legend.position = "bottom")
 # Save graph
