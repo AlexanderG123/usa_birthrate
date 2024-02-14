@@ -5,12 +5,14 @@ thanks: "Code and data underpinning this paper are available at: https://github.
 date: "`r format(Sys.Date(), '%B %d, %Y')`" # This will add the current date
 date-format: long
 bibliography: references.bib
+toc: true
 execute:
   echo: false
 format: pdf
 fig-pos: "H"
 abstract: |
- This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions. Through the examination of comprehensive data, provided by American Economics Association [@citewebsite], we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns.
+  In an aging population that has reaching its highest numbers in the 21st century, it is ever more important to understand what influences birth rates. This paper examines the trends in birth rates across the United States from 1980 to 2020, analyzing how factors like marital status, education level, and age group influence fertility decisions. Through the examination of comprehensive data, provided by American Economics Association [@citewebsite], we uncovered a significant decline in birth rates post-2007, with marked variations across different demographic groups, indicating a shift towards later-life parenthood and a nuanced relationship between education and fertility. These findings highlight the complex interplay between socioeconomic factors and reproductive choices, shedding light on how societal norms and individual priorities are reshaping family formation patterns. \newpage
+
 ---
 
 ```{r}
@@ -26,9 +28,10 @@ Our analysis, conducted using the R programming language [@citeR], reveals signi
 
 Analysis of data “The Puzzle of Falling US Birth Rates since the Great Recession” [@citepaper], a paper from the Journal of Economic Perspectives [@citewebsite], was done using the R programming language [@citeR] in conjunction with the following packages: tidyverse [@tidyverse] and Knitr [@knitr]. The figures were created using ggplot2 [@citeggplot]. Data points on birth rates per 1000 women was used to observe overarching birth patterns in the US from women ages 15-44 from 1980-2020. Demographic variables were also obtained from the data providing functionality for further analysis. Birth rates by age group, marital status and education level were available and selected as independant variables from the data. This breakdown facilitated a more nuanced understanding of how birth rates varied within these demographic cohorts for the specified period.
 
-This paper is organized as follows: first discussing the data @sec-data, we describing the methodological approach, including data sourcing and analytical tools; then, presenting our results in the detail @sec-results; we discuss our findings in the context of previous research, pointing out the limitations of our study as well as its societal implications; finally, In the discussion @sec-discussion is suggestion for future directions of research, stressing the significance of looking into the underlying causes of changing fertility patterns and their effects on society.
+The paper is organized with a data, results and discussion section. In the data @sec-data, we describe the methodological approach including data sourcing and anylitical tools. In the results @sec-results we show our analysis with descriptive figures, and finally, in the discussion @sec-discussion we discuss the significance of the results within the context of the previous research, and areas of future study.
 
 Our research highlights the importance of demographic studies in informing policy and public debate, offering a foundation for addressing the challenges posed by changing birth rates. By exploring the intersections of education, marital status, and age with fertility, we contribute valuable insights into the shifting demographic landscape of the United States.
+
 
 
 # 2 Data {#sec-data}
@@ -64,6 +67,7 @@ We begin by looking at the overall trend in birth rate from 1980 - 2020. @fig-1 
 ```{r, fig.cap= "Birth rate for women aged 15-44 regressed on a declining linear model"}
 #| label: fig-1
 library(tidyverse)
+library(ggplot2)
 data <- read.csv(here::here("inputs/data/fig_1.csv"))
 
 ggplot(data, aes(x = year, y = brate_all)) + 
@@ -93,7 +97,7 @@ ggplot() +
   theme_minimal() +
   labs(title = "US Birth Rates by Age Group (1980-2020)",
        x = "Year",
-       y = "Birth Rate",
+       y = "Birth Rate per 1,000 women",
        color = "Age Group") +
   theme(legend.position = "bottom",
         legend.title = element_text(size=8),
@@ -119,7 +123,7 @@ ggplot() +
     theme_minimal() +
     labs(title = "US Birth Rates by Education Level (1992-2019)",
          x = "Year",
-         y = "Birth Rate",
+         y = "Birth Rate per 1,000 women",
          color = "Education Level") +
     theme(legend.position = "bottom",
         legend.title = element_text(size=8),
@@ -148,7 +152,7 @@ ggplot(data, aes(x = year)) +
     theme_minimal() +
     labs(title = "US Birth Rates by Marital Status (1980-2020)",
          x = "Year",
-         y = "Birth Rate",
+         y = "Birth Rate per 1,000 women",
          color = "Marital Status") +
     theme(legend.position = "bottom") 
 ```
@@ -179,11 +183,14 @@ The variations in birth rates over time across all educational levels further su
 
 # 4.4 Weaknesses and Limitations
 
-While the study offers valuable insights, it is not without limitations. Firstly, the data collection process is complicated by the use of self-reported information, which can introduce biases, especially when measuring education levels. Secondly, there is a possibility of underreporting births among undocumented immigrants, and the requirement for documentation to verify age poses additional challenges. Lastly, a critical gap in the research is the absence of analysis regarding the reasons for choosing to have fewer children, which leaves unexplored the myriad of social, economic, and personal factors that influence fertility decisions.
+While the study offers valuable insights, it is not without limitations. Firstly, the data collection process is complicated by the use of self-reported information, which can introduce biases, especially when measuring education levels. As mentioned in @sec-data 2.4, bias could skew education levels higher. Secondly, there is a possibility of underreporting births among undocumented immigrants, and the requirement for documentation to verify age poses additional challenges. Lastly, a critical gap in the research is the absence of analysis regarding the reasons for choosing to have fewer children, which leaves unexplored the myriad of social, economic, and personal factors that influence fertility patterns.
+Fertility patterns also have external factors causing impact unavailable in this data. Abortion rates have a direct relationship with birth rates. Not only the availability but the social attitudes of intervention when it comes to pregnancy have changed over recent years. The impact of changing social dynamics on determinants discussed in this paper also apply when talking about abortion, and thus could negatively skew some findings.
 
 # 4.5 Future Research Directions
 
-Future research should aim to investigate the relationship between financial stability and fertility decisions by correlating trends in birth rates with economic data. Questions like whether having a higher income causes one to have more children or if people are delaying having children because of financial concerns should be thoroughly examined. Finally, examining the implications of an aging population and the social and economic costs of altering fertility patterns could offer insightful information to policymakers and society at large.
+Future research should aim to investigate the relationship between financial stability and fertility decisions by correlating trends in birth rates with economic data. Questions like whether having a higher income causes one to have more children or if people are delaying having children because of financial concerns should be thoroughly examined. 
+Other possibly influences on fertility decisions should also be examined at a more social level, not just economic. Changing policy and attitudes will constanly be a force in the number of children being born. Looking into how shock changes in societies structure would be a interesting topic of analysis. An example of a topic of research would be the impact of the Roe v. Wade political changes across statees in the US.
+Medical advancements are another changing field, examining the implications of an aging population and the social and economic costs of altering fertility patterns could offer insightful information to policymakers and society at large.
 
 \newpage
 
